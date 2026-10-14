@@ -33,7 +33,7 @@ public class DiscountCalculator {
     ) {
 
         if (premiumCustomer && amount >= 500) {
-            return 0.15;
+            return 0.20;
         }
 
         if (premiumCustomer) {
