@@ -4,7 +4,7 @@ import edu.unac.domain.InvalidPurchaseException;
 
 public class DiscountCalculator {
     public double calculateFinalPrice(double amount, boolean premiumCustomer) {
-
+        //My change
         validateAmount(amount);
 
         double discount = calculateDiscount(amount, premiumCustomer);
@@ -17,6 +17,12 @@ public class DiscountCalculator {
         if (amount <= 0) {
             throw new InvalidPurchaseException(
                     "Amount must be greater than zero"
+            );
+        }
+
+        if (amount > 1000000) {
+            throw new InvalidPurchaseException(
+                    "The amount exceeds the maximum"
             );
         }
     }

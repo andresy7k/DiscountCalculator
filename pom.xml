@@ -12,6 +12,9 @@
         <maven.compiler.source>25</maven.compiler.source>
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sonar.organization>andresy7k</sonar.organization>
+        <sonar.projectKey>andresy7k_DiscountCalculator</sonar.projectKey>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencies>
@@ -45,9 +48,30 @@
                         <phase>test</phase>
                         <goals>
                             <goal>report</goal>
+                            <goal>check</goal>
                         </goals>
+
+                        <configuration>
+                            <rules>
+                                <rule>
+                                    <element>CLASS</element>
+                                    <limits>
+                                        <limit>
+                                            <counter>LINE</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>0.95</minimum>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                            </rules>
+                        </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>5.8.0.7211</version>
             </plugin>
         </plugins>
     </build>
