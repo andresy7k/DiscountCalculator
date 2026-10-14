@@ -41,6 +41,6 @@ jobs:
         run: mvn clean verify
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v6
+        run: mvn sonar:sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
